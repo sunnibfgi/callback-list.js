@@ -1,9 +1,7 @@
 //callback=list.js
 ;(function(global) {
   'use strict'
-  
   var callbackQueue = function() {
-
     return {
       callback: [],
       method: function(callback) {
@@ -20,19 +18,15 @@
         return this
       },
       init: function(callback, context) {
-
         this.method(callback)
         this.exec(context)
         this.callback = []
         return this
-
       }
     }
   }()
-
   if (typeof define === 'function' && define.amd) {
     define(callbackQueue)
   }
-
   global.callbackQueue = callbackQueue
 })(this)
