@@ -4,7 +4,7 @@
   var callbackQueue = function() {
     return {
       callback: [],
-      method: function(callback) {
+      addCallback: function(callback) {
         if (typeof callback === 'function') {
           this.callback.push(callback)
         }
@@ -18,7 +18,7 @@
         return this
       },
       init: function(callback, context) {
-        this.method(callback)
+        this.addCallback(callback)
         this.exec(context)
         this.callback = []
         return this
