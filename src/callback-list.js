@@ -1,4 +1,4 @@
-//callback=list.js
+//callback-list.js
 ;(function(global) {
   'use strict'
   var callbackQueue = function() {
