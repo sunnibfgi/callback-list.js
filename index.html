@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>callback list</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <button id="btn-a">click A</button>
+  <button id="btn-b">click B</button>
+  <script src="lib/require.js"></script>
+  <script>
+    var a = document.getElementById('btn-a')
+    var x = 10,
+      y = 20
+
+    function add(a, b) {
+      return a + b
+    }
+    a.onclick = function() {
+      x += 1
+      y += 1
+      callbackQueue.init(function() {
+        alert(add(x, y))
+      })
+    }
+    require(['src/callback-list'], function(obj) {
+      obj.init(function() {
+        console.log(this)
+      }, Object).init(function() {
+        console.log('>>>>ss')
+      })
+
+    })
+  </script>
+</body>
+
+</html>
